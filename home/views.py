@@ -13,3 +13,11 @@ def assets(request):
 def employees(request):
     context = {}
     return render(request, 'home/employees.html', context)
+
+def manufacturers(request):
+    context = {}
+    return render(request, 'home/manufacturers.html', context)
+
+def locations(request):
+    context = {}
+    return render(request, 'home/locations.html', context)
