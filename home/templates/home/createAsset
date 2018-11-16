@@ -1,0 +1,5 @@
+{% extends "home/base.htm" %}
+
+{% block content %}
+    <p>This page will have the form to create IT assets.</p>
+{% endblock %}
