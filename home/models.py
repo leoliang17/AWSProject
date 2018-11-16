@@ -26,9 +26,6 @@ class Employee(models.Model):
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
-    def __str__(self):
-        return self.first_name + " " + self.last_name
-
 class Asset(models.Model):
     id = models.CharField(max_length=10, primary_key=True)
     currentLocation = models.ForeignKey(Location, on_delete=models.CASCADE)
