@@ -2,7 +2,8 @@
 
 {% block content %}
     <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-        <img class="w3-image" src="{{ STATIC_URL }}home/photos/asset_management.png" alt="Architecture" width="1500" height="800">
+            {% load static %}
+        <img class="w3-image" src="{% static "asset_management.png" %}" alt="Architecture" width="1500" height="800">
     </header>
           
     <div class="w3-container w3-padding-32" id="projects">
