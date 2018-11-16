@@ -7,8 +7,8 @@ class Location(models.Model):
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=100)
 
-    def __str__():
-        return name
+    def __str__(self):
+        return self.name
 
 class Manufacturer(models.Model):
     name = models.CharField(max_length=100)
