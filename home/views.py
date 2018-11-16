@@ -21,3 +21,35 @@ def manufacturers(request):
 def locations(request):
     context = {}
     return render(request, 'home/locations.html', context)
+
+def createAsset(request):
+    context = {}
+    return render(request, 'home/createAsset.html', context)
+
+def updateAsset(request):
+    context = {}
+    return render(request, 'home/updateAsset.html', context)
+
+def createEmployee(request):
+    context = {}
+    return render(request, 'home/createEmployee.html', context)
+
+def updateEmployee(request):
+    context = {}
+    return render(request, 'home/updateEmployee.html', context)
+
+def createManufacturer(request):
+    context = {}
+    return render(request, 'home/createManufacturer.html', context)
+
+def updateManufacturer(request):
+    context = {}
+    return render(request, 'home/updateManufacturer.html', context)
+
+def createLocation(request):
+    context = {}
+    return render(request, 'home/createLocation.html', context)
+
+def updateLocation(request):
+    context = {}
+    return render(request, 'home/updateLocation.html', context)
