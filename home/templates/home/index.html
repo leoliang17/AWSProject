@@ -1,75 +1,45 @@
 {% extends "home/base.htm" %}
 
 {% block content %}
-    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1200px;" id="home">
             {% load static %}
         <img class="w3-image" src="{% static "asset_management.png" %}" alt="Architecture" width="1500" height="800">
     </header>
           
     <div class="w3-container w3-padding-32" id="projects">
-            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Please Select One of the Following:</h3>
             </div>
           <div class="w3-row-padding">
             <div class="w3-col l3 m6 w3-margin-bottom">
               <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
-                <img src="/w3images/house5.jpg" alt="House" style="width:100%">
+                <div class="w3-display-topleft w3-black w3-padding">Assets</div>
+                <a href="/home/assets">
+                  <img src="{% static "media/assets.png" %}" alt="House" style="width:100%">
+                </a>
               </div>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
               <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
-                <img src="/w3images/house2.jpg" alt="House" style="width:100%">
+                <div class="w3-display-topleft w3-black w3-padding">Locations</div>
+                <a href="/home/locations">
+                  <img src="{% static "media/locations.png" %}" alt="House" style="width:100%">
+                </a>
               </div>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
               <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
-                <img src="/w3images/house3.jpg" alt="House" style="width:100%">
+                <div class="w3-display-topleft w3-black w3-padding">Manufacturers</div>
+                <a href="/home/manufacturers">
+                  <img src="{% static "media/manufacturers.jpg" %}" alt="House" style="width:100%"></a>
               </div>
             </div>
             <div class="w3-col l3 m6 w3-margin-bottom">
               <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
-                <img src="/w3images/house4.jpg" alt="House" style="width:100%">
+                <div class="w3-display-topleft w3-black w3-padding">Employees</div>
+                <a href="/home/employees" class="w3-bar-item w3-button">
+                  <img src="{% static "media/employees.png" %}" alt="House" style="width:100%">
+                </a>
               </div>
             </div>
           </div>
-        
-          <!-- About Section -->
-          <div class="w3-container w3-padding-32" id="about">
-            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div>
-        
-          <div class="w3-row-padding w3-grayscale">
-            <div class="w3-col l3 m6 w3-margin-bottom">
-              <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-              <h3>Josh Simpson</h3>
-              <p class="w3-opacity">CEO & Founder</p>
-              <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom">
-              <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-              <h3>Leo Liang</h3>
-              <p class="w3-opacity">Architect</p>
-              <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom">
-              <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
-              <h3>Josh Harris</h3>
-              <p class="w3-opacity">Architect</p>
-              <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom">
-              <img src="/w3images/team4.jpg" alt="Dan" style="width:100%">
-              <h3>Mike Anderson</h3>
-              <p class="w3-opacity">Architect</p>
-              <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            </div>
-          </div>
-        
 {% endblock %}
