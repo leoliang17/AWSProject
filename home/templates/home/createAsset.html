@@ -3,7 +3,6 @@
 {% block content %}
     <p>This page will have the form to create IT assets.</p>
 
-
     <form action="/home/createAsset/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
