@@ -38,7 +38,7 @@ def createAsset(request):
         # check whether it's valid:
         if form.is_valid():
             asset = models.Asset()
-            asset.id = form.cleaned_data['id']
+            asset.uniqueIdentifier = form.cleaned_data['uniqueIdentifier']
             asset.currentLocation = form.cleaned_data['currentLocation']
             asset.orgTag = form.cleaned_data['orgTag']
             asset.manufacturer = form.cleaned_data['manufacturer']
@@ -68,7 +68,7 @@ def updateAsset(request, pk):
         form = forms.UpdateAssetForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            asset.id = form.cleaned_data['id']
+            asset.uniqueIdentifier = form.cleaned_data['uniqueIdentifier']
             asset.currentLocation = form.cleaned_data['currentLocation']
             asset.orgTag = form.cleaned_data['orgTag']
             asset.manufacturer = form.cleaned_data['manufacturer']

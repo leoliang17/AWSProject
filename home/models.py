@@ -27,7 +27,7 @@ class Employee(models.Model):
         return self.first_name + ' ' + self.last_name
 
 class Asset(models.Model):
-    id = models.CharField(max_length=10, primary_key=True)
+    uniqueIdentifier = models.CharField(max_length=10)
     currentLocation = models.ForeignKey(Location, on_delete=models.CASCADE)
     orgTag = models.CharField(max_length=20)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)

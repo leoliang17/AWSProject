@@ -21,7 +21,7 @@ class CreateEmployeeForm(forms.Form):
     location = forms.ModelChoiceField(label='Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
 
 class CreateAssetForm(forms.Form):
-    id = forms.CharField(label='ID', max_length=10, required=True)
+    uniqueIdentifier = forms.CharField(label='ID', max_length=10, required=True)
     currentLocation = forms.ModelChoiceField(label='Current Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
     orgTag = forms.CharField(label='Organization Tag', required=True)
     manufacturer = forms.ModelChoiceField(label='Manufacturer',queryset=models.Manufacturer.objects.all(), required=True, to_field_name="id")
@@ -30,6 +30,12 @@ class CreateAssetForm(forms.Form):
     dateImplemented = forms.DateField(label='Date Implemented', required=True)
     maintNotes = forms.CharField(label='Maintenance Notes', required=True)
     employee = forms.ModelChoiceField(label='Employee',queryset=models.Employee.objects.all(), required=True, to_field_name="id")
+
+    def clean_uniqueIdentifier(self):
+        data = self.cleaned_data['uniqueIdentifier']
+        if models.Asset.objects.filter(uniqueIdentifier=data).all():
+            raise forms.ValidationError('ID already used. Please choose another.')
+        return data
 
 class UpdateLocationForm(forms.Form):
     name = forms.CharField(label='Name', max_length=100, required=True)
@@ -49,7 +55,7 @@ class UpdateEmployeeForm(forms.Form):
     location = forms.ModelChoiceField(label='Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
 
 class UpdateAssetForm(forms.Form):
-    id = forms.CharField(label='ID', max_length=10, required=True)
+    uniqueIdentifier = forms.CharField(label='ID', max_length=10, required=True)
     currentLocation = forms.ModelChoiceField(label='Current Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
     orgTag = forms.CharField(label='Organization Tag', required=True)
     manufacturer = forms.ModelChoiceField(label='Manufacturer',queryset=models.Manufacturer.objects.all(), required=True, to_field_name="id")
@@ -59,5 +65,10 @@ class UpdateAssetForm(forms.Form):
     maintNotes = forms.CharField(label='Maintenance Notes', required=True)
     employee = forms.ModelChoiceField(label='Employee',queryset=models.Employee.objects.all(), required=True, to_field_name="id")
 
+    def clean_uniqueIdentifier(self):
+        data = self.cleaned_data['uniqueIdentifier']
+        if models.Asset.objects.filter(uniqueIdentifier=data).all():
+            raise forms.ValidationError('ID already used. Please choose another.')
+        return data
 
 
