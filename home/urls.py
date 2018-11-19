@@ -22,6 +22,7 @@ urlpatterns = [
     path('deleteAsset/<pk>', views.deleteAsset, name='deleteAsset'),
     path('deleteEmployee/<pk>', views.deleteEmployee, name='deleteEmployee'),
     path('deleteLocation/<pk>', views.deleteLocation, name='deleteLocation'),
-    path('deleteManufacturer/<pk>', views.deleteManufacturer, name='deleteManufacturer')
+    path('deleteManufacturer/<pk>', views.deleteManufacturer, name='deleteManufacturer'),
+    path('logoff/', views.logoff, name='logoff'),
 
 ]

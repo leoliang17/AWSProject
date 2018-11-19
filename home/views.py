@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from . import forms as forms
 from . import models as models
 from django import forms as djangoForms
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 
@@ -289,5 +289,8 @@ def deleteManufacturer(request, pk):
     models.Manufacturer.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/home/manufacturers/')
 
+def logoff(request):
+    logout(request)
+    return HttpResponseRedirect('/home/logon/')
     
 
