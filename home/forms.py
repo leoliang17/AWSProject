@@ -22,13 +22,14 @@ class CreateEmployeeForm(forms.Form):
     location = forms.ModelChoiceField(label='Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
 
 class CreateAssetForm(forms.Form):
-    uniqueIdentifier = forms.CharField(label='ID', max_length=10, required=True)
+    YEARS = [x for x in range(1940,2021)]
+    uniqueIdentifier = forms.CharField(label='ID', min_length=10, max_length=10, required=True)
     currentLocation = forms.ModelChoiceField(label='Current Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
     orgTag = forms.CharField(label='Organization Tag', required=True)
     manufacturer = forms.ModelChoiceField(label='Manufacturer',queryset=models.Manufacturer.objects.all(), required=True, to_field_name="id")
-    manufacturerPartNum = forms.DecimalField(label='Manufacturer Part Number', required=True)
+    manufacturerPartNum = forms.DecimalField(label='Manufacturer Part Number', required=True, min_value=0)
     description = forms.CharField(label='Description', required=True)
-    dateImplemented = forms.DateField(label='Date Implemented', required=True)
+    dateImplemented = forms.DateField(label='Date Implemented', required=True, initial="1992-05-25", widget=forms.SelectDateWidget(years=YEARS))
     maintNotes = forms.CharField(label='Maintenance Notes', required=True)
     employee = forms.ModelChoiceField(label='Employee',queryset=models.Employee.objects.all(), required=True, to_field_name="id")
 
@@ -56,12 +57,13 @@ class UpdateEmployeeForm(forms.Form):
     location = forms.ModelChoiceField(label='Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
 
 class UpdateAssetForm(forms.Form):
+    YEARS = [x for x in range(1940,2021)]
     currentLocation = forms.ModelChoiceField(label='Current Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
     orgTag = forms.CharField(label='Organization Tag', required=True)
     manufacturer = forms.ModelChoiceField(label='Manufacturer',queryset=models.Manufacturer.objects.all(), required=True, to_field_name="id")
-    manufacturerPartNum = forms.DecimalField(label='Manufacturer Part Number', required=True)
+    manufacturerPartNum = forms.DecimalField(label='Manufacturer Part Number', required=True, min_value=0)
     description = forms.CharField(label='Description', required=True)
-    dateImplemented = forms.DateField(label='Date Implemented', required=True)
+    dateImplemented = forms.DateField(label='Date Implemented', required=True, initial="1992-05-25", widget=forms.SelectDateWidget(years=YEARS))
     maintNotes = forms.CharField(label='Maintenance Notes', required=True)
     employee = forms.ModelChoiceField(label='Employee',queryset=models.Employee.objects.all(), required=True, to_field_name="id")
 

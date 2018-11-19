@@ -1,12 +1,17 @@
 {% extends "home/base.htm" %}
 
 {% block content %}
-    <div style="text-align:center">
-        <form action="/home/submitAssetRequest/" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
-        </form>
+    <div style="text-align: center">
+        <div class="box">
+            <div class="box-header">
+                <h1>Assign IT Asset to Employee</h1>
+            </div>
+                <p class="warning-messages text-danger"></p>
+                <form action="/home/submitAssetRequest/" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
     </div>
-   
 {% endblock %}
