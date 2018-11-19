@@ -1,5 +1,43 @@
 {% extends "home/base.htm" %}
 
 {% block content %}
-    <p>This page will list IT assets.</p>
+<div class="box">
+  <div class="box-header">
+    <h1>Assets</h1>
+  </div>
+    <p class="warning-messages text-danger"></p>
+    <table id="sort" class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>Location</th>
+            <th>Organizational Tag</th>
+            <th>Manufacturer</th>
+            <th>Part Number</th>
+            <th>Description</th>
+            <th>Date Implemented</th>
+            <th>Notes</th>
+            <th>Employee</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for a in asset_list %}
+            <tr>
+                <td>{{ a.id }}</td>
+                <td>{{ a.currentLocation }}</td>
+                <td>{{ a.orgTag }}</td>
+                <td>{{ a.manufacturer }}</td>
+                <td>{{ a.manufacturerPartNum }}</td>
+                <td>{{ a.description }}</td>
+                <td>{{ a.dateImplemented }}</td>
+                <td>{{ a.maintNotes }}</td>
+                <td>{{ a.employee }}</td>
+                <td><a class="" href="/home/updateAsset/{{ a.id }}">edit</a><span> | </span><a class="delete_btn" href="#">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/home/createAsset/" role="button">Add New Asset</a>
+</div>
+{% load staticfiles %}
+<script src="{% static "scripts/assets.js" %}"></script>
 {% endblock %}

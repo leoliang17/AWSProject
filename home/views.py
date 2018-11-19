@@ -11,19 +11,23 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 def assets(request):
-    context = {}
+    assets = models.Asset.objects.all()
+    context = {'asset_list': assets,}
     return render(request, 'home/assets.html', context)
 
 def employees(request):
-    context = {}
+    employees = models.Employee.objects.all()
+    context = {'employee_list': employees,}
     return render(request, 'home/employees.html', context)
 
 def manufacturers(request):
-    context = {}
+    manufacturers = models.Manufacturer.objects.all()
+    context = {'manufacturer_list': manufacturers,}
     return render(request, 'home/manufacturers.html', context)
 
 def locations(request):
-    context = {}
+    locations = models.Location.objects.all()
+    context = {'location_list': locations,}
     return render(request, 'home/locations.html', context)
 
 def createAsset(request):

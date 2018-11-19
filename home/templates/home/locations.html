@@ -1,5 +1,37 @@
 {% extends "home/base.htm" %}
 
 {% block content %}
-    <p>This page will list locations</p>
+<div class="box">
+  <div class="box-header">
+    <h1>Locations</h1>
+  </div>
+    <p class="warning-messages text-danger"></p>
+    <table id="sort" class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for l in location_list %}
+            <tr>
+                <td>{{ l.id }}</td>
+                <td>{{ l.name }}</td>
+                <td>{{ l.address }}</td>
+                <td>{{ l.city }}</td>
+                <td>{{ l.state }}</td>
+                <td>{{ l.country }}</td>
+                <td><a class="" href="/home/updateLocation/{{ l.id }}">edit</a><span> | </span><a class="delete_btn" href="#">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="/home/createLocation/" role="button">Add New Location</a>
+</div>
+{% load staticfiles %}
+<script src="{% static "scripts/locations.js" %}"></script>
 {% endblock %}

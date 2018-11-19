@@ -8,8 +8,15 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css"/>
+      <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}"/>
   </head>
 <body>
+<div id="body">
 
 <!-- Navbar (sit on top) -->
     <nav class="navbar navbar-inverse">
@@ -28,7 +35,7 @@
 
 
 <!-- Page content -->
-<div class="container">
+<div id="content" class="container">
     {% block content %}{% endblock %}
 </div>
 
@@ -37,7 +44,7 @@
 <footer class="w3-center w3-black w3-padding-16">
   <p>Powered by CSR Solutions</a></p>
 </footer>
-
+</div>
 </body>
 </html>
 

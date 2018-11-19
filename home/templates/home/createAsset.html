@@ -1,11 +1,16 @@
 {% extends "home/base.htm" %}
 
 {% block content %}
-    <p>This page will have the form to create IT assets.</p>
-
+<div class="box">
+  <div class="box-header">
+    <h1>Add New Asset</h1>
+    <a href="/home/assets">&#8592; Back to Assets</a>
+  </div>
+    <p class="warning-messages text-danger"></p>
     <form action="/home/createAsset/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit">
+        <input class="btn btn-primary" type="submit" value="Submit">
     </form>
+</div>
 {% endblock %}
