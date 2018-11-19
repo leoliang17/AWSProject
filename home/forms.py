@@ -1,5 +1,6 @@
 from django import forms
 from . import models as models
+from django.contrib.auth import authenticate, login
 
 
 
@@ -70,5 +71,16 @@ class UpdateAssetForm(forms.Form):
         if models.Asset.objects.filter(uniqueIdentifier=data).all():
             raise forms.ValidationError('ID already used. Please choose another.')
         return data
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='Username', required=True)
+    password = forms.CharField(label='Password', required=True, widget=forms.PasswordInput)
+
+    def clean(self):
+        user = authenticate(username=self.cleaned_data['username'], password=self.cleaned_data['password'])
+        if user is None:
+            raise forms.ValidationError('Incorrect username or password')
+        return self.cleaned_data
+
 
 

@@ -1,0 +1,11 @@
+{% extends "home/base.htm" %}
+
+{% block content %}
+    <p>This page will do login</p>
+
+    <form action="/home/logon/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from . import forms as forms
 from . import models as models
 from django import forms as djangoForms
+from django.contrib.auth import authenticate, login
 
 
 
@@ -239,3 +240,19 @@ def updateLocation(request, pk):
 
     context = {'form': form}
     return render(request, 'home/updateLocation.html', context)
+
+def logon(request):
+        # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = forms.LoginForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+            login(request, user)
+            return HttpResponseRedirect('/home/index/')
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = forms.LoginForm()
+    context = {'form': form}
+    return render(request, 'home/login.html', context)
