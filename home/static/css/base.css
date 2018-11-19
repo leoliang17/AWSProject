@@ -1,0 +1,68 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* needed for container min-height */
+  position: relative;
+  background-color: #f0f0f0;
+  font-family: 'Century Gothic', 'Franklin Gothic', 'Apple Gothic', 'Arial Narrow', Arial, sans-serif !important;
+  --main-teal: #4fbfa8;
+  --main-teal-dark: #3da892;
+}
+
+#body {
+    min-height: 100%;
+    position: relative;
+}
+
+#content {
+    padding-bottom: 60px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.box .box-header h1 {
+    color: var(--main-teal);
+}
+
+.box {
+    background: #fff;
+    margin: 0 0 30px;
+    border: solid 1px #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 20px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  .box .box-header {
+    background: #f7f7f7;
+    margin: -20px -20px 20px;
+    padding: 20px;
+    border-bottom: solid 1px #eeeeee;
+  }
+  .box .box-header:before,
+  .box .box-header:after {
+    content: " ";
+    display: table;
+  }
+  .box .box-header:after {
+    clear: both;
+  }
+  .box .box-footer {
+    background: #f7f7f7;
+    margin: 30px -20px -20px;
+    padding: 20px;
+    border-top: solid 1px #eeeeee;
+  }
+  .box .box-footer:before,
+  .box .box-footer:after {
+    content: " ";
+    display: table;
+  }
