@@ -4,33 +4,39 @@ from . import forms as forms
 from . import models as models
 from django import forms as djangoForms
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
-
+@login_required(login_url='/home/logon/')
 def index(request):
     context = {}
     return render(request, 'home/index.html', context)
 
+@login_required(login_url='/home/logon/')
 def assets(request):
     assets = models.Asset.objects.all()
     context = {'asset_list': assets,}
     return render(request, 'home/assets.html', context)
 
+@login_required(login_url='/home/logon/')
 def employees(request):
     employees = models.Employee.objects.all()
     context = {'employee_list': employees,}
     return render(request, 'home/employees.html', context)
 
+@login_required(login_url='/home/logon/')
 def manufacturers(request):
     manufacturers = models.Manufacturer.objects.all()
     context = {'manufacturer_list': manufacturers,}
     return render(request, 'home/manufacturers.html', context)
 
+@login_required(login_url='/home/logon/')
 def locations(request):
     locations = models.Location.objects.all()
     context = {'location_list': locations,}
     return render(request, 'home/locations.html', context)
 
+@login_required(login_url='/home/logon/')
 def createAsset(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -60,6 +66,7 @@ def createAsset(request):
     context = {'form': form}
     return render(request, 'home/createAsset.html', context)
 
+@login_required(login_url='/home/logon/')
 def updateAsset(request, pk):
     #Employee instance 
     asset = models.Asset.objects.get(pk=pk)
@@ -90,6 +97,7 @@ def updateAsset(request, pk):
     context = {'form': form}
     return render(request, 'home/updateAsset.html', context)
 
+@login_required(login_url='/home/logon/')
 def createEmployee(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -114,6 +122,7 @@ def createEmployee(request):
     context = {'form': form}
     return render(request, 'home/createEmployee.html', context)
 
+@login_required(login_url='/home/logon/')
 def updateEmployee(request, pk):
     #Employee instance 
     employee = models.Employee.objects.get(pk=pk)
@@ -140,6 +149,7 @@ def updateEmployee(request, pk):
     context = {'form': form}
     return render(request, 'home/updateEmployee.html', context)
 
+@login_required(login_url='/home/logon/')
 def createManufacturer(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -162,6 +172,7 @@ def createManufacturer(request):
     context = {'form': form}
     return render(request, 'home/createManufacturer.html', context)
 
+@login_required(login_url='/home/logon/')
 def updateManufacturer(request, pk):
     #Manufacterer instance 
     manufacturer = models.Manufacturer.objects.get(pk=pk)
@@ -186,6 +197,7 @@ def updateManufacturer(request, pk):
     context = {'form': form}
     return render(request, 'home/updateManufacturer.html', context)
 
+@login_required(login_url='/home/logon/')
 def createLocation(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -211,6 +223,7 @@ def createLocation(request):
     context = {'form': form}
     return render(request, 'home/createLocation.html', context)
 
+@login_required(login_url='/home/logon/')
 def updateLocation(request, pk):
     #Location instance 
     location = models.Location.objects.get(pk=pk)
@@ -256,6 +269,7 @@ def logon(request):
     context = {'form': form}
     return render(request, 'home/login.html', context)
 
+@login_required(login_url='/home/logon/')
 def submitAssetRequest(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -273,22 +287,27 @@ def submitAssetRequest(request):
     context = {'form': form}
     return render(request, 'home/submitAssetRequest.html', context)
 
+@login_required(login_url='/home/logon/')
 def deleteAsset(request, pk):
     models.Asset.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/home/assets/')
 
+@login_required(login_url='/home/logon/')
 def deleteEmployee(request, pk):
     models.Employee.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/home/employees/')
 
+@login_required(login_url='/home/logon/')
 def deleteLocation(request, pk):
     models.Location.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/home/locations/')
 
+@login_required(login_url='/home/logon/')
 def deleteManufacturer(request, pk):
     models.Manufacturer.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/home/manufacturers/')
 
+@login_required(login_url='/home/logon/')
 def logoff(request):
     logout(request)
     return HttpResponseRedirect('/home/logon/')
