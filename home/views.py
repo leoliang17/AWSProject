@@ -287,7 +287,7 @@ def deleteLocation(request, pk):
 
 def deleteManufacturer(request, pk):
     models.Manufacturer.objects.get(pk=pk).delete()
-    return HttpResponseRedirect('/home/manufacturers')
+    return HttpResponseRedirect('/home/manufacturers/')
 
     
 

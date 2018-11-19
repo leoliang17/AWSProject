@@ -1,11 +1,16 @@
 {% extends "home/base.htm" %}
 
 {% block content %}
-    <p>This page will create an location.</p>
-
-    <form action="/home/createLocation/" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
+    <div class="box">
+        <div class="box-header">
+          <h1>Add New Location</h1>
+          <a href="/home/locations">&#8592; Back to Locations</a>
+        </div>
+          <p class="warning-messages text-danger"></p>
+          <form action="/home/createLocation/" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+      </div>
 {% endblock %}
