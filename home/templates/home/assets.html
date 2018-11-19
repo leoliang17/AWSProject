@@ -31,7 +31,7 @@
                 <td>{{ a.dateImplemented }}</td>
                 <td>{{ a.maintNotes }}</td>
                 <td>{{ a.employee }}</td>
-                <td><a class="" href="/home/updateAsset/{{ a.id }}">edit</a><span> | </span><a class="delete_btn" href="#">delete</a></td>
+                <td><a class="" href="/home/updateAsset/{{ a.id }}">edit</a><span> | </span><a class="delete_btn" href="/home/deleteAsset/{{ a.id }}">delete</a></td>
             </tr>
             {% endfor %}
         </tbody>

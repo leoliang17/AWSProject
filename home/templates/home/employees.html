@@ -23,7 +23,7 @@
                 <td>{{ e.last_name }}</td>
                 <td>{{ e.position }}</td>
                 <td>{{ e.location }}</td>
-                <td><a class="" href="/home/updateEmployee/{{ e.id }}">edit</a><span> | </span><a class="delete_btn" href="#">delete</a></td>
+                <td><a class="" href="/home/updateEmployee/{{ e.id }}">edit</a><span> | </span><a class="delete_btn" href="/home/deleteEmployee/{{ e.id }}">delete</a></td>
             </tr>
             {% endfor %}
         </tbody>

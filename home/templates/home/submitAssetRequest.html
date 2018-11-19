@@ -1,0 +1,12 @@
+{% extends "home/base.htm" %}
+
+{% block content %}
+    <div style="text-align:center">
+        <form action="/home/submitAssetRequest/" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+   
+{% endblock %}

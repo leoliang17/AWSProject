@@ -69,7 +69,6 @@ def updateAsset(request, pk):
         form = forms.UpdateAssetForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            asset.uniqueIdentifier = form.cleaned_data['uniqueIdentifier']
             asset.currentLocation = form.cleaned_data['currentLocation']
             asset.orgTag = form.cleaned_data['orgTag']
             asset.manufacturer = form.cleaned_data['manufacturer']
@@ -256,3 +255,39 @@ def logon(request):
         form = forms.LoginForm()
     context = {'form': form}
     return render(request, 'home/login.html', context)
+
+def submitAssetRequest(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = forms.SubmitAssetRequestForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            asset = models.Asset.objects.get(uniqueIdentifier=form.cleaned_data['asset'])
+            asset.employee = form.cleaned_data['employee']
+            asset.save()
+            return HttpResponseRedirect('/home/index/')
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = forms.SubmitAssetRequestForm()
+    context = {'form': form}
+    return render(request, 'home/submitAssetRequest.html', context)
+
+def deleteAsset(request, pk):
+    models.Asset.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/home/assets/')
+
+def deleteEmployee(request, pk):
+    models.Employee.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/home/employees/')
+
+def deleteLocation(request, pk):
+    models.Location.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/home/locations/')
+
+def deleteManufacturer(request, pk):
+    models.Manufacturer.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/home/manufacturers')
+
+    
+

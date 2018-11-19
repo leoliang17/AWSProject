@@ -19,7 +19,7 @@
                 <td>{{ m.id }}</td>
                 <td>{{ m.name }}</td>
                 <td>{{ m.description }}</td>
-                <td><a class="" href="/home/updateManufacturer/{{ m.id }}">edit</a><span> | </span><a class="delete_btn" href="#">delete</a></td>
+                <td><a class="" href="/home/updateManufacturer/{{ m.id }}">edit</a><span> | </span><a class="delete_btn" href="/home/deleteManufacturer/{{ m.id }}">delete</a></td>
             </tr>
             {% endfor %}
         </tbody>

@@ -18,4 +18,10 @@ urlpatterns = [
     path('updateManufacturer/<pk>', views.updateManufacturer, name='updateManufacturer'),
     path('createLocation/', views.createLocation, name='createLocation'),
     path('updateLocation/<pk>', views.updateLocation, name='updateLocation'),
+    path('submitAssetRequest/', views.submitAssetRequest, name='submitAssetRequest'),
+    path('deleteAsset/<pk>', views.deleteAsset, name='deleteAsset'),
+    path('deleteEmployee/<pk>', views.deleteEmployee, name='deleteEmployee'),
+    path('deleteLocation/<pk>', views.deleteLocation, name='deleteLocation'),
+    path('deleteManufacturer/<pk>', views.deleteManufacturer, name='deleteManufacturer')
+
 ]

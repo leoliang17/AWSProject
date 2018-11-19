@@ -56,7 +56,6 @@ class UpdateEmployeeForm(forms.Form):
     location = forms.ModelChoiceField(label='Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
 
 class UpdateAssetForm(forms.Form):
-    uniqueIdentifier = forms.CharField(label='ID', max_length=10, required=True)
     currentLocation = forms.ModelChoiceField(label='Current Location',queryset=models.Location.objects.all(), required=True, to_field_name="id")
     orgTag = forms.CharField(label='Organization Tag', required=True)
     manufacturer = forms.ModelChoiceField(label='Manufacturer',queryset=models.Manufacturer.objects.all(), required=True, to_field_name="id")
@@ -65,12 +64,6 @@ class UpdateAssetForm(forms.Form):
     dateImplemented = forms.DateField(label='Date Implemented', required=True)
     maintNotes = forms.CharField(label='Maintenance Notes', required=True)
     employee = forms.ModelChoiceField(label='Employee',queryset=models.Employee.objects.all(), required=True, to_field_name="id")
-
-    def clean_uniqueIdentifier(self):
-        data = self.cleaned_data['uniqueIdentifier']
-        if models.Asset.objects.filter(uniqueIdentifier=data).all():
-            raise forms.ValidationError('ID already used. Please choose another.')
-        return data
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', required=True)
@@ -81,6 +74,10 @@ class LoginForm(forms.Form):
         if user is None:
             raise forms.ValidationError('Incorrect username or password')
         return self.cleaned_data
+
+class SubmitAssetRequestForm(forms.Form):
+    employee = forms.ModelChoiceField(label='Employee ID', queryset=models.Employee.objects.all(), required=True, to_field_name="id")
+    asset = forms.ModelChoiceField(label='IT Asset', queryset=models.Asset.objects.all(), required=True, to_field_name="uniqueIdentifier")
 
 
 
